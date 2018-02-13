@@ -1,0 +1,7 @@
+<h1>Gossips Homepage</h1>
+
+<% if admin_signed_in? %>
+  <p>Now you can <%= link_to "view all the gossips", gossips_path %>!</p>
+<% else %>
+  <p>Yo bro', you really need to login/register to this cooooool app!</p>
+<% end %>

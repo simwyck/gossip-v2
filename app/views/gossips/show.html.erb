@@ -1,0 +1,17 @@
+<h1>Your Gossip</h1>
+
+<% if @gossip.created_at == @gossip.updated_at %>
+  <p>Created on: <%= @gossip.created_at.strftime("%d/%m/%Y at %H:%M") %></p>
+<% else %>
+  <p>Updated on: <%= @gossip.updated_at.strftime("%d/%m/%Y at %H:%M") %></p>
+<% end %>
+
+<p>Author: <%= @gossip.anonymous_author %></p>
+
+<p>Content:<br / /><%= @gossip.content %></p>
+
+<button><a href="<%= edit_gossip_path %>" class="btn btn-primary">Edit Gossip</a></button>
+
+<button><a href="<%= @gossip %>" class="btn btn-danger" data-confirm="Sure about this?" data-method="DELETE">Delete Gossip</a></button>
+
+<p><a href="<%= gossips_path %>" class="btn btn-default">Back To More Gossips</a></p>

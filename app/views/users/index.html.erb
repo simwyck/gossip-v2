@@ -1,0 +1,7 @@
+<h1>Users#index</h1>
+
+<% @admins = Admin.all %>
+<% @admins.each do |user| %>
+  <%= admin.username %><br/>
+  <%= admin.email %><br/>
+<% end %>

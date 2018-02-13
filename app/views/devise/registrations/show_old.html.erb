@@ -1,0 +1,31 @@
+<h1><%= current_user.username %></h1>
+
+<h2>My Gossips</h2>
+
+<% if !current_user.created_gossips.any? %>
+  <p>You didn't gossip yet</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Auteur</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% current_user.created_gossips.each do |event| %>
+        <tr>
+          <td><%= gossip.anonymous_author%></td>
+          <td><%= gossip.content %></td>
+          <td>
+            <%= link_to 'View', gossip, :method=>:get%>
+            <%= link_to 'Delete', gossip, :method=>:delete%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<div><%= link_to "Add New Gossip", new_gossip_path %></div>

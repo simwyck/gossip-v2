@@ -1,0 +1,25 @@
+<h1>All Gossips</h1>
+
+<% if !@gossips.any? %>
+  <p>No gossip to display, man. You need to <%= link_to "add your own", new_gossip_path %> NOW!</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @gossips.each do |gossip| %>
+        <tr>
+          <td><%= gossip.anonymous_author%></td>
+          <td><%= gossip.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<p><a href="<%= new_gossip_path %>">Try Gossiping URself</a></p>
